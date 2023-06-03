@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Allocate Venue</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4" style="text-align: center;">Book Tickets</h1>
+            <hr class="my-4">
+        </div>
+        <div class="row">
+            <h3 style="text-align: center;">Allocate Venues for {{show_name}}</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h6>Name</h6>
+            </div>
+            <div class="col-md-3">
+                <h6>City</h6>
+            </div>
+            <div class="col-md-3">
+                <h6>Capacity</h6>
+            </div>
+            <div class="col-md-3">
+                <h6>Screen Count</h6>
+            </div>
+            <hr class="my-4">
+        </div>
+        {% for venue in venue_list %}
+            {% if venue.allocated == 'False' %}
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6>{{venue.name}}</h6>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>{{venue.city}}</h6>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>{{venue.capacity}}</h6>
+                    </div>
+                    <div class="col-md-3">
+                        <h6>{{venue.screencount}}</h6>
+                    </div>
+                    <form action="/venueallocation/{{venue.venueId}}/{{show_name}}" method="post">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Screen Number</label>
+                                    <input type="number" class="form-control" name="screen_no" max="{{venue.screencount}}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label style="width: 261px;"></label>
+                                <button type="submit" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg> Add Venue </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr class="my-4">
+            {% endif %}
+        {% endfor %}
+        <p style="text-align: center;"><a href="/showmanagement" class="btn btn-primary">Show Management</a></p>
+        <div class="row">
+            <div style="height: 490px;"></div>
+        </div>
+        <div class="jumbotron">
+            <hr class="my-4">
+            <p style="text-align: center;">&COPY; 2023 Satvik Chandrakar</p>
+        </div>
+    </div>
+</body>
+</html>

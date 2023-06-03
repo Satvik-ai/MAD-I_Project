@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Venue Management</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <section>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-4" style="text-align: center;">Book Tickets</h1>
+                    <hr class="my-4">
+                </div>
+                <div class="bg-white rounded-lg d-block d-sm-flex">
+                    <div class="profile-tab-nav border border-dark rounded-3" style="height: 600px; width: 285px;">
+                        <div style="height: 200px;"></div>
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="venue-tab" data-toggle="pill" href="#venue" role="tab"
+                                aria-controls="venue" aria-selected="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                                  </svg> Venues
+                            </a>
+                            <a class="nav-link" id="add-venue-tab" data-toggle="pill" href="#add-venue" role="tab"
+                                aria-controls="add-venue" aria-selected="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-add-fill" viewBox="0 0 16 16">
+                                    <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 1 1-1 0v-1h-1a.5.5 0 1 1 0-1h1v-1a.5.5 0 0 1 1 0Z"/>
+                                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                                    <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+                                  </svg> Add venue
+                            </a>
+                            <a class="nav-link" id="edit-venue-tab" data-toggle="pill" href="#edit-venue" role="tab"
+                                aria-controls="edit-venue" aria-selected="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                  </svg> Edit Venue
+                            </a>
+                            <a class="nav-link" id="remove-venue-tab" data-toggle="pill" href="#remove-venue" role="tab"
+                                aria-controls="remove-venue" aria-selected="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                  </svg> Remove Venue
+                            </a>
+                        </div>
+                    </div>
+                    <div style="width: 10px;"></div>
+                    <div class="tab-content p-4 p-md-5 border border-dark rounded-3" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="venue" role="tabpanel" aria-labelledby="venue-tab" style="width: 895px;">
+                            <h3 class="mb-4" style="text-align: center;">Venue List</h3>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>Name</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>City</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Capacity</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Screen Count</h6>
+                                </div>
+                            </div>
+                            {% for venue in venue_list %}
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>{{venue.name}}</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>{{venue.city}}</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>{{venue.capacity}}</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>{{venue.screencount}}</h6>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="add-venue" role="tabpanel" aria-labelledby="add-venue-tab" style="width: 895px;">
+                            <h3 class="mb-4" style="text-align: center;">Add venue</h3>
+                            <form action="/addvenue" id="addvenueForm" method="post" accept-charset="utf-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" class="form-control" name="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input type="text" class="form-control" name="city" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Capacity</label>
+                                            <input type="number" class="form-control" name="capacity" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Screen Count</label>
+                                            <input type="number" class="form-control" name="screencount" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div>
+                                    <input class="btn btn-primary" type="submit" value="Add Venue">
+                                    <input class="btn btn-light" type="reset" value="Cancel">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="edit-venue" role="tabpanel" aria-labelledby="edit-venue-tab" style="width: 895px;">
+                            <h3 class="mb-4" style="text-align: center;">Edit Venue</h3>
+                            {% for venue in venue_list %}
+                            <form action="/editvenue/{{venue.venueId}}" id="editvenueForm" method="post" accept-charset="utf-8">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" class="form-control" name="name" value="{{venue.name}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input type="text" class="form-control" name="city" value="{{venue.city}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Capacity</label>
+                                            <input type="number" class="form-control" name="capacity" value="{{venue.capacity}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Screen Count</label>
+                                            <input type="number" class="form-control" name="screencount" value="{{venue.screencount}}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div>
+                                    <input class="btn btn-primary" type="submit" value="Edit Venue">
+                                    <input class="btn btn-light" type="reset" value="Cancel">
+                                </div>
+                            </form>
+                            <hr class="my-4">
+                            {% endfor %}
+                        </div>
+                        <div class="tab-pane fade" id="remove-venue" role="tabpanel" aria-labelledby="remove-venue-tab" style="width: 895px;">
+                            <h3 class="mb-4" style="text-align: center;">Remove Venue</h3>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>Name</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>City</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Capacity</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Screen Count</h6>
+                                </div>
+                            </div>
+                            {% for venue in venue_list %}
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>{{venue.name}}</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>{{venue.city}}</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>{{venue.capacity}}</h6>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>{{venue.screencount}}</h6>
+                                </div>
+                                <div>
+                                    <form action="/removevenue/{{venue.venueId}}">
+                                        <input type="submit" class="btn btn-primary" value="Delete">
+                                    </form>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <p style="text-align: center;"><a href="/sysopt" class="btn btn-primary mt-5">Admin Portal</a></p>
+                </div>
+                <div class="jumbotron">
+                    <hr class="my-4">
+                    <p style="text-align: center;">&COPY; 2023 Satvik Chandrakar</p>
+                </div>
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function openForm() {
+                document.getElementById("deleteConfirmation").style.display = "block";
+            }
+    
+            function closeForm() {
+                document.getElementById("deleteConfirmation").style.display = "none";
+            }
+        </script>
+    </body>
+</html>

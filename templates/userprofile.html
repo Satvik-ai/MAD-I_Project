@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Book Tickets</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-4" style="text-align: center;">Book Tickets</h1>
+                <hr class="my-4">
+            </div>
+            <div class="bg-white rounded-lg d-block d-sm-flex">
+                <div class="profile-tab-nav border border-dark rounded-3" style="height: 600px; width: 285px;">
+                    <div class="p-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16"
+                            style="text-align: center; width:100%; margin-top: 50px; margin-bottom: 20px;">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                        <h5 style="text-align: center;">{{user.first_name}} {{user.last_name}}</h5>
+                    </div>
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="booktickets-tab" data-toggle="pill" href="#booktickets" role="tab"
+                            aria-controls="booktickets" aria-selected="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                                <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4-1v1h1v-1H4Zm1 3v-1H4v1h1Zm7 0v-1h-1v1h1Zm-1-2h1v-1h-1v1Zm-6 3H4v1h1v-1Zm7 1v-1h-1v1h1Zm-7 1H4v1h1v-1Zm7 1v-1h-1v1h1Zm-8 1v1h1v-1H4Zm7 1h1v-1h-1v1Z"/>
+                              </svg> Book Tickets
+                        </a>
+                        <a class="nav-link" id="searchvenues-tab" data-toggle="pill" href="#searchvenues" role="tab"
+                            aria-controls="searchvenues" aria-selected="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                              </svg> Search Venues
+                        </a>
+                        <a class="nav-link" id="searchshows-tab" data-toggle="pill" href="#searchshows" role="tab"
+                            aria-controls="searchshows" aria-selected="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
+                                <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
+                              </svg> Search Shows
+                        </a>
+                        <a class="nav-link" id="bookedshows-tab" data-toggle="pill" href="#bookedshows" role="tab" aria-controls="bookedshows" aria-selected="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
+                                <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
+                              </svg> Booked Shows
+                        </a>
+                    </div>
+                </div>
+                <div style="width: 10px;"></div>
+                <div class="tab-content p-4 p-md-5 border border-dark rounded-3" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="booktickets" role="tabpanel" aria-labelledby="booktickets-tab" style="width: 895px;">
+                        <h3 style="text-align: center;">Latest Shows</h3>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Name</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Price</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Tags</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Start Date</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>End Date</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Book Tickets</h6>
+                            </div>
+                        </div>
+                        {% for show in show_list %}
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h6>{{show.name}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.price}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.tags}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.sdate}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.edate}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6><a href="/booktickets/{{username}}/{{show.showId}}" class="btn btn-primary">Book <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                                        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4-1v1h1v-1H4Zm1 3v-1H4v1h1Zm7 0v-1h-1v1h1Zm-1-2h1v-1h-1v1Zm-6 3H4v1h1v-1Zm7 1v-1h-1v1h1Zm-7 1H4v1h1v-1Zm7 1v-1h-1v1h1Zm-8 1v1h1v-1H4Zm7 1h1v-1h-1v1Z"/>
+                                      </svg></a></h6>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                        {% endfor %}
+                    </div>
+                    <div class="tab-pane fade" id="searchvenues" role="tabpanel" aria-labelledby="searchvenues-tab" style="width: 895px;">
+                        <h3 style="text-align: center;"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                          </svg> Venues</h3>
+                        <form action="/searchvenues/{{username}}" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Enter City</label>
+                                        <input type="text" class="form-control" name="city">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="width: 435.5px;"></label>
+                                    <input class="btn btn-primary" type="submit" value="Search">
+                                    <input class="btn btn-light" type="reset" value="Cancel">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="searchshows" role="tabpanel" aria-labelledby="searchshows-tab" style="width: 895px;">
+                        <h3 style="text-align: center;"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                          </svg> Shows</h3>
+                        <form action="/searchshows/{{username}}" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Enter Movie Tags/Name</label>
+                                        <input type="text" class="form-control" name="query">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="width: 435.5px;"></label>
+                                    <input class="btn btn-primary" type="submit" value="Search">
+                                    <input class="btn btn-light" type="reset" value="Cancel">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="bookedshows" role="tabpanel" aria-labelledby="bookedshows-tab" style="width: 895px;">
+                        <h3 style="text-align: center;">My Booked Shows</h3>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Show</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Venue</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Date</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6># Seats Booked</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Screen #</h6>
+                            </div>
+                            <div class="col-md-2">
+                                <h6>Timing</h6>
+                            </div>
+                        </div>
+                        {% for show in bookedshows %}
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h6>{{show.show_name}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.venue}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.date}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.no_of_seats_booked}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.screen_no}}</h6>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6>{{show.timing}}</h6>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p style="text-align: center;"><a href="/" class="btn btn-primary mt-5">Log Out</a></p>
+            </div>
+            <div class="jumbotron">
+                <hr class="my-4">
+                <p style="text-align: center;">&COPY; 2023 Satvik Chandrakar</p>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
