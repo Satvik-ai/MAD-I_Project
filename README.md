@@ -70,5 +70,6 @@ $ (env) pip install -r requirements.txt
 
 
 5. Finally start the web server:
-
+```
 $ (env) python app.py
+```
