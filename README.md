@@ -14,12 +14,13 @@ Technologies used :
   - Style :- Jinja2, Bootstrap
 
 Functionalities : 
+
    1. Admin and User Login 
        * Form for username and password for user
        * Separate form for admin login
        * Using simple HTML form with username and password for login 
        * There is a model for the user in the database to store their data
-
+  
     2. Venue Management (Only for Admin)
        * Admin can add new venue
        * It can edit the details of a venue 
